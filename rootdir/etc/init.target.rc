@@ -122,7 +122,6 @@ on early-boot
     start vendor.sensors
 
 on boot
-    start rmt_storage
     start rfs_access
 
     chown system system /sys/class/thermal/thermal_message/sconfig
@@ -228,11 +227,6 @@ service vendor.thermal-engine /vendor/bin/thermal-engine
    socket thermal-recv-passive-client stream 0666 system system
    socket thermal-send-rule stream 0660 system system
    group root
-
-service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
-    class main
-    user root
-    group system wakelock
 
 service nv_mac /vendor/bin/nv_mac
     class late_start
