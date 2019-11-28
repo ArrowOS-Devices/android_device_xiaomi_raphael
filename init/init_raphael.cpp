@@ -72,4 +72,5 @@ void vendor_load_properties() {
         LOG(ERROR) << __func__ << ": unexcepted region!";
     }
 
+    property_override("ro.oem_unlock_supported", "0");
 }
