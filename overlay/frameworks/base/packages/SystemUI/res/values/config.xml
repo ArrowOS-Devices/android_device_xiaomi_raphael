@@ -19,6 +19,9 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
 <resources>
+    <!-- Color of the FOD view -->
+    <color name="config_fodColor">#00ffffff</color>
+
     <!-- Max visible notification icons -->
     <integer name="config_maxVisibleNotificationIcons">7</integer>
     <integer name="config_maxVisibleNotificationIconsWhenDark">8</integer>
