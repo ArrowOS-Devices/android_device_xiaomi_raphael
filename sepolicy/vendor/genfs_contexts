@@ -32,3 +32,6 @@ genfscon sysfs /devices/virtual/misc/msm_multi_aac/wakeup               u:object
 genfscon sysfs /devices/virtual/misc/msm_qcelp/wakeup                   u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/virtual/misc/msm_wma/wakeup                     u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/virtual/misc/msm_wmapro/wakeup                  u:object_r:sysfs_wakeup:s0
+
+# FlickerFree
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/msm_fb_ea_enable                                                          u:object_r:vendor_sysfs_graphics:s0
