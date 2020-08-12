@@ -404,9 +404,6 @@
     <!-- Shows the required view for in-display fingerprint -->
     <bool name="config_supportsInDisplayFingerprint">true</bool>
 
-    <!-- Whether the device has fingeprint sensor or not -->
-    <bool name="config_hasFingerprintSensor">true</bool>
-
     <!-- Flashlight on power button -->
     <integer name="config_flashlightProximityTimeout">3000</integer>
 
