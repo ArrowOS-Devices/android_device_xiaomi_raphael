@@ -35,3 +35,6 @@ genfscon sysfs /devices/virtual/misc/msm_wmapro/wakeup                  u:object
 
 # FlickerFree
 genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/msm_fb_ea_enable                                                          u:object_r:vendor_sysfs_graphics:s0
+
+# HBM
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/hbm                                                                       u:object_r:vendor_sysfs_graphics:s0
