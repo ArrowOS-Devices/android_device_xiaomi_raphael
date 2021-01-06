@@ -20,3 +20,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Media
 PRODUCT_PRODUCT_PROPERTIES += \
     debug.stagefright.omx_default_rank.sw-audio=16
+
+# WFD
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.debug.wfd.enable=0
+
