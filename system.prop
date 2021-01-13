@@ -1,3 +1,180 @@
+
+#
+# from device/xiaomi/sm8150_common/system.prop
+#
+#
+# system.prop for sdm845
+#
+
+rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
+#rild.libargs=-d /dev/smd0
+persist.rild.nitz_plmn=
+persist.rild.nitz_long_ons_0=
+persist.rild.nitz_long_ons_1=
+persist.rild.nitz_long_ons_2=
+persist.rild.nitz_long_ons_3=
+persist.rild.nitz_short_ons_0=
+persist.rild.nitz_short_ons_1=
+persist.rild.nitz_short_ons_2=
+persist.rild.nitz_short_ons_3=
+ril.subscription.types=NV,RUIM
+DEVICE_PROVISIONED=1
+# Set network mode to (T/L/G/W/1X/EVDO, T/L/G/W/1X/EVDO) for 7+7 mode device on DSDS mode
+ro.telephony.default_network=22,22
+
+#property to enable user to access Google WFD settings
+persist.debug.wfd.enable=1
+
+dalvik.vm.heapsize=36m
+dev.pm.dyn_samplingrate=1
+
+#ro.hdmi.enable=true
+#persist.speaker.prot.enable=false
+qcom.hw.aac.encoder=true
+
+#system props for the MM modules
+media.stagefright.enable-player=true
+media.stagefright.enable-http=true
+media.stagefright.enable-aac=true
+media.stagefright.enable-qcp=true
+media.stagefright.enable-fma2dp=true
+media.stagefright.enable-scan=true
+media.stagefright.thumbnail.prefer_hw_codecs=true
+mmp.enable.3g2=true
+media.aac_51_output_enabled=true
+media.settings.xml=/vendor/etc/media_profiles_vendor.xml
+persist.mm.enable.prefetch=true
+
+#system props for time-services
+persist.timed.enable=true
+
+#
+# system prop for opengles version
+#
+# 196608 is decimal for 0x30000 to report version 3
+# 196609 is decimal for 0x30001 to report version 3.1
+# 196610 is decimal for 0x30002 to report version 3.2
+ro.opengles.version=196610
+
+#
+# System props for telephony
+# System prop to turn on CdmaLTEPhone always
+telephony.lteOnCdmaDevice=1
+
+#Simulate sdcard on /data/media
+#
+persist.fuse_sdcard=true
+
+#Netflix custom property
+ro.netflix.bsp_rev=Q855-16947-1
+
+#system prop for Bluetooth SOC type
+vendor.bluetooth.soc=cherokee
+ro.bluetooth.library_name=libbluetooth_qti.so
+
+ro.bluetooth.emb_wp_mode=false
+ro.bluetooth.wipower=false
+
+#sysprop for WLAN
+ro.wlan.vendor=qcom
+ro.wlan.chip=39xx
+ro.wlan.mimo=1
+
+# 0: no dbs, 1: 1x1 dbs, 2: 2x2 dbs
+ro.hardware.wlan.dbs=1
+
+#
+#snapdragon value add features
+#
+ro.qc.sdk.audio.ssr=false
+
+##fluencetype can be "fluence" or "fluencepro" or "none"
+ro.qc.sdk.audio.fluencetype=none
+persist.audio.fluence.voicecall=true
+persist.audio.fluence.voicerec=false
+persist.audio.fluence.speaker=true
+
+#button jack mode & switch
+persist.audio.button_jack.profile=volume
+persist.audio.button_jack.switch=0
+
+#system prop for RmNet Data
+persist.rmnet.data.enable=true
+persist.data.wda.enable=true
+persist.data.df.dl_mode=5
+persist.data.df.ul_mode=5
+persist.data.df.agg.dl_pkt=10
+persist.data.df.agg.dl_size=4096
+persist.data.df.mux_count=8
+persist.data.df.iwlan_mux=9
+persist.data.df.dev_name=rmnet_usb0
+
+##property to choose between virtual/external wfd display
+persist.sys.wfd.virtual=0
+
+# enable tunnel encoding for amrwb
+tunnel.audio.encode = true
+
+#Buffer size in kbytes for compress offload playback
+audio.offload.buffer.size.kb=32
+
+#Enable offload audio video playback by default
+av.offload.enable=true
+
+#enable voice path for PCM VoIP by default
+use.voice.path.for.pcm.voip=true
+
+# system prop for NFC DT
+ro.nfc.port=I2C
+
+#enable dsp gapless mode by default
+audio.offload.gapless.enabled=true
+
+#initialize QCA1530 detection
+sys.qca1530=detect
+
+#Enable stm events
+persist.debug.coresight.config=stm-events
+
+config.disable_rtt=true
+
+#Bringup properties
+persist.sys.force_sw_gles=1
+ro.kernel.qemu.gles=0
+qemu.hw.mainkeys=0
+
+#Expose aux camera for below packages
+vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
+
+#logd buffer size
+ro.logd.size=2M
+
+# property to latch unsignaled buffer
+debug.sf.latch_unsignaled=1
+
+#-----------For modem start-----------------
+ro.telephony.default_cdma_sub=0
+
+#set ims related prop
+#persist.dbg.volte_avail_ovr=1
+#persist.dbg.vt_avail_ovr=1
+persist.radio.VT_HYBRID_ENABLE=1
+
+#set RIJL video call related prop
+persist.radio.NO_STAPA=1
+
+#disable strictmode
+persist.sys.strictmode.disable=true
+
+#set SAR feature
+persist.radio.dynamic_sar=false
+
+#disble rcs service
+persist.rcs.supported=0
+#-----------For modem end-------------------
+# end of device/xiaomi/sm8150_common/system.prop
+
+#
 # ART
 dalvik.vm.boot-dex2oat-cpu-set=0,1,2,3,4,5,6,7
 dalvik.vm.boot-dex2oat-threads=8
@@ -8,98 +185,19 @@ dalvik.vm.image-dex2oat-cpu-set=0,1,2,3,4,5,6,7
 dalvik.vm.image-dex2oat-filter=everything
 dalvik.vm.image-dex2oat-threads=8
 
-# Bluetooth
-persist.bt.enableAptXHD=true
-persist.service.btui.use_aptx=1
-persist.vendor.bt.a2dp.aac_whitelist=false
-persist.bluetooth.a2dp_aac.vbr_supported=true
-ro.bluetooth.library_name=libbluetooth_qti.so
-
-# Camera
-persist.camera.managebuffer.enable=1
-persist.camera.sat.fallback.dist.d=10
-persist.camera.sat.fallback.dist=40
-persist.camera.sat.fallback.lux.d=50
-persist.camera.sat.fallback.luxindex=360
-persist.vendor.camera.enableNCSService=TRUE
-persist.vendor.camera.enableTOFInterface=TRUE
-persist.vendor.camera.mfnrframenum=8
-persist.vendor.camera.multicam=TRUE
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
-
 # Charger
 ro.charger.enable_suspend=true
 
-# CNE and DPM
-persist.vendor.cne.feature=1
-persist.vendor.dpm.feature=1
-persist.vendor.dpm.loglevel=0
-persist.vendor.dpm.nsrm.bkg.evt=3955
-
 # Display
 ro.sf.lcd_density=440
-
-# Google keyboard
-ro.com.google.ime.height_ratio=1.2
-
-# Graphics
-ro.surface_flinger.has_wide_color_display=true
-ro.surface_flinger.has_HDR_display=true
-debug.cpurend.vsync=false
-debug.sf.enable_gl_backpressure=1
 
 # Set lmkd options
 ro.config.low_ram = false
 ro.lmk.log_stats = true
 
-# Media
-media.aac_51_output_enabled=true
-media.stagefright.enable-aac=true
-media.stagefright.enable-fma2dp=true
-media.stagefright.enable-http=true
-media.stagefright.enable-player=true
-media.stagefright.enable-qcp=true
-media.stagefright.enable-scan=true
-media.stagefright.thumbnail.prefer_hw_codecs=true
-ro.media.recorder-max-base-layer-fps=60
-mmp.enable.3g2=true
-media.settings.xml=/vendor/etc/media_profiles_vendor.xml
-persist.mm.enable.prefetch=true
-
 # Additional buffers shared between Camera and Video
 vidc.enc.dcvs.extra-buff-count=2
 vidc.enc.disable.pq=1
-
-# Netflix custom property
-ro.netflix.bsp_rev=Q855-16947-1
-
-# NFC DT
-ro.nfc.port=I2C
-
-# RCS
-persist.rcs.supported=1
-
-# RIL
-DEVICE_PROVISIONED=1
-persist.vendor.radio.enable_temp_dds=true
-persist.vendor.radio.force_on_dc=true
-ril.subscription.types=RUIM
-ro.telephony.default_cdma_sub=0
-telephony.lteOnCdmaDevice=1
-
-# SurfaceFlinger
-ro.surface_flinger.max_frame_buffer_acquired_buffers=3
-debug.sf.use_phase_offsets_as_durations=1
-debug.sf.late.sf.duration=10500000
-debug.sf.late.app.duration=20500000
-debug.sf.early.sf.duration=16000000
-debug.sf.early.app.duration=16500000
-debug.sf.earlyGl.sf.duration=13500000
-debug.sf.earlyGl.app.duration=21000000
-ro.surface_flinger.protected_contents=true
-
-# WiFi
-wifi.interface=wlan0
 
 # Zygote
 persist.device_config.runtime_native.usap_pool_enabled=true

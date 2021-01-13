@@ -1,0 +1,2 @@
+# device
+ro.build.characteristics=nosdcard
