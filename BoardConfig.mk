@@ -1,5 +1,5 @@
 # Copyright 2019 The Android Open Source Project
-# Copyright 2019 Paranoid Android
+# Copyright 2019-2021 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -27,16 +27,13 @@ BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := generic
-TARGET_CPU_VARIANT_RUNTIME := cortex-a76
+TARGET_CPU_VARIANT := cortex-a76
 
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-2a
+TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := generic
-TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a76
+TARGET_2ND_CPU_VARIANT := cortex-a76
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := raphael,raphaelin
@@ -50,10 +47,9 @@ TARGET_NO_BOOTLOADER := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xa90000 androidboot.hardware=qcom androidboot.console=ttyMSM0 service_locator.enable=1 firmware_class.path=/vendor/firmware_mnt/image loop.max_part=16 androidboot.usbcontroller=a600000.dwc3
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xa90000 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 loop.max_part=7 androidboot.usbcontroller=a600000.dwc3
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-BOARD_KERNEL_CMDLINE += msm_drm.timing_override=1
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 4096
 #Disable appended dtb
@@ -104,14 +100,10 @@ TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
 
 # Display
-TARGET_USES_ION := true
-TARGET_USES_NEW_ION_API := true
 USE_OPENGL_RENDERER := true
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
-TARGET_USES_GRALLOC4 := true
-TARGET_USES_HWC2 := true
 TARGET_HAS_HDR_DISPLAY := true
 TARGET_HAS_WIDE_COLOR_DISPLAY := true
 TARGET_USES_DISPLAY_RENDER_INTENTS := true
@@ -128,14 +120,28 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 BOARD_HAVE_QCOM_FM := true
 
 # FOD
-TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.raphael
+TARGET_SURFACEFLINGER_FOD_LIB := \
+    //$(DEVICE_PATH):libfod_extension.raphael
 TARGET_USES_FOD_ZPOS := true
 
+# Graphics
+TARGET_USES_GRALLOC4 := true
+TARGET_USES_HWC2 := true
+TARGET_USES_ION := true
+
 # HIDL
-DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/c2_manifest.xml
-DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
+DEVICE_FRAMEWORK_MANIFEST_FILE := \
+    $(DEVICE_PATH)/vintf/framework_manifest.xml
+
+DEVICE_MANIFEST_FILE += \
+    $(DEVICE_PATH)/vintf/manifest.xml \
+    $(DEVICE_PATH)/vintf/c2_manifest.xml
+
+DEVICE_MATRIX_FILE := \
+    $(DEVICE_PATH)/vintf/compatibility_matrix.xml
+
+ODM_MANIFEST_FILES += \
+    $(DEVICE_PATH)/vintf/manifest-qva.xml
 
 # Keystore
 TARGET_PROVIDES_KEYMASTER := true
@@ -143,34 +149,46 @@ TARGET_PROVIDES_KEYMASTER := true
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
-# Media
-TARGET_PROVIDES_LIBPLATFORMCONFIG := true
-
 # NFC
 TARGET_USES_NQ_NFC := true
 
-# Partitions
-BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+# Partition (Boot)
+BOARD_BOOTIMAGE_PARTITION_SIZE := 0x06000000
+BOARD_FLASH_BLOCK_SIZE := 262144 #(BOARD_KERNEL_PAGESIZE * 64)
+
+# Partition (Cache)
 BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
-BOARD_DTBOIMG_PARTITION_SIZE := 33554432
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+
+# Partition (Dtbo)
+BOARD_DTBOIMG_PARTITION_SIZE := 0x0800000
+
+# Partition (Recovery)
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
+
+# Partition (System)
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3599228928
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
+
+# Partition (Userdata)
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 57453555712
+BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
+
+# Partition (Vendor)
 BOARD_VENDORIMAGE_PARTITION_SIZE := 1610612736
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+TARGET_COPY_OUT_VENDOR := vendor
 
+# Partition (SystemAsRoot, Metadata)
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_USES_METADATA_PARTITION := true
 
-BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
-
+# Partition (Userimages)
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
-TARGET_USES_MKE2FS := true
 
-TARGET_COPY_OUT_VENDOR := vendor
+TARGET_USES_MKE2FS := true
 
 # Power
 TARGET_TAP_TO_WAKE_EVENT_NODE := "/dev/input/event3"
@@ -224,6 +242,9 @@ BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
+
+# VNDK
+BOARD_VNDK_VERSION := current
 
 # WiFi
 BOARD_WLAN_DEVICE := qcwcn
