@@ -384,10 +384,10 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service.raphael
+    android.hardware.power-service-qti
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/power/config/msmnile/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+    $(LOCAL_PATH)/power/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 # QMI
 PRODUCT_PACKAGES += \
