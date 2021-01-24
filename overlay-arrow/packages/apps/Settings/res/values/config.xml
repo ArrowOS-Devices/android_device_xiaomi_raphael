@@ -26,4 +26,7 @@
 
     <!-- FOD recognizing animation -->
     <bool name="config_showFODAnimationSettings">true</bool>
+
+    <!-- Smart Charging -->
+    <bool name="config_supportSmartCharging">true</bool>
 </resources>
