@@ -493,6 +493,10 @@ media/audio/ui/popup_lightsaber_up.ogg|18f78fc7bc485c3f233b496e7c4876625f03aab6
 media/audio/ui/popup_throne_room_down.ogg|0a250fbad938fb64cdf1d19220bf02e50811ffec
 media/audio/ui/popup_throne_room_up.ogg|e52d7c2a15f899a02ae02184a31ffe89f6bc167c
 
+# Charger (Battery Cryptographic)
+vendor/bin/batterysecret
+vendor/etc/init/init.batterysecret.rc
+
 # Charger (hvdcp)
 vendor/bin/hvdcp_opti
 vendor/bin/init.qti.chg_policy.sh
