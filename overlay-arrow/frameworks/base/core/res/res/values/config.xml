@@ -23,9 +23,6 @@
     <!-- Shows the required view for in-display fingerprint -->
     <bool name="config_supportsInDisplayFingerprint">true</bool>
 
-    <!-- Hide FOD while Going to sleep from lockscreen to avoid HBM flicker -->
-    <bool name="config_inDisplayFingerprintFlickersGoingToSleep">true</bool>
-
     <!-- Smart charging -->
     <string name="config_SmartChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/input_suspend</string>
     <string name="config_SmartChargingSuspendValue" translatable="false">1</string>
