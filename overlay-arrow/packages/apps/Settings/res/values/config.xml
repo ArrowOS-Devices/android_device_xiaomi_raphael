@@ -29,4 +29,7 @@
 
     <!-- Smart Charging -->
     <bool name="config_supportSmartCharging">true</bool>
+
+    <!-- Screen off FOD -->
+    <bool name="config_supportScreenOffFod">true</bool>
 </resources>
