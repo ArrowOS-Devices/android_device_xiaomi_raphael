@@ -145,33 +145,14 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml
 
 # Display
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.4-service \
-    android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
-    android.hardware.graphics.mapper@3.0-impl-qti-display \
-    android.hardware.graphics.mapper@4.0-impl-qti-display
+TARGET_BOARD_PLATFORM := msmnile
 
-PRODUCT_PACKAGES += \
-    libdisplayconfig.qti \
-    libdisplayconfig.qti.vendor \
-    libqdMetaData
+-include hardware/qcom-caf/sm8150/display/config/display-board.mk
+-include hardware/qcom-caf/sm8150/display/config/display-product.mk
+include hardware/qcom-caf/sm8150/display/display-commonsys-intf/config/display-interfaces-product.mk
+include hardware/qcom-caf/sm8150/display/display-commonsys-intf/config/display-product-system.mk
 
-PRODUCT_PACKAGES += \
-    libtinyxml
-
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.display.allocator-service \
-    vendor.qti.hardware.display.mapper@2.0.vendor \
-    vendor.qti.hardware.display.mapper@3.0.vendor \
-    vendor.qti.hardware.display.mapper@4.0.vendor
-
-PRODUCT_PACKAGES += \
-    gralloc.msmnile \
-    hwcomposer.msmnile \
-    memtrack.msmnile
-
-# Display
+# ConfigStore
 PRODUCT_PACKAGES += \
     disable_configstore
 
