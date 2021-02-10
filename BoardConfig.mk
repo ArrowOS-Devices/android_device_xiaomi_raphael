@@ -220,6 +220,10 @@ VENDOR_SECURITY_PATCH := 2021-02-01
 USE_SENSOR_MULTI_HAL := true
 
 # Sepolicy
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+SELINUX_IGNORE_NEVERALLOWS := true
+endif
+
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 include device/xiaomi/raphael-sepolicy/raphael-sepolicy.mk
 
