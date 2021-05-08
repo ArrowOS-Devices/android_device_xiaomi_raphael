@@ -33,7 +33,7 @@
     <string name="dirac_hifi_summary">Уменьшите шум и искажения и улучшите качество звука</string>
 
     <!-- Dirac settings: headset profiles -->
-    <string name="dirac_headset_default">Default</string>
+    <string name="dirac_headset_default">По умолчанию</string>
     <string name="dirac_headset_earbuds">Mi Earbuds</string>
     <string name="dirac_headset_in_ear_2013">Mi In-Ear (2013)</string>
     <string name="dirac_headset_piston_1">Mi Piston 1</string>
@@ -83,7 +83,7 @@
 
     <!-- Thermal Profiles -->
     <string name="thermal_title">Профили оптимизации</string>
-    <string name="thermal_summary">Установите профили температуры для оптимальной производительности приложений</string>
+    <string name="thermal_summary">Установите профили оптимизации для оптимальной производительности приложений</string>
     <string name="thermal_default">По умолчанию</string>
     <string name="thermal_benchmark">Бенчмарк</string>
     <string name="thermal_browser">Браузер</string>
@@ -95,11 +95,11 @@
     <!-- Touch Control Settings -->
     <string name="touch_control_title">Сенсорное управление</string>
     <string name="touch_game_mode_title">Включить игровой режим</string>
-    <string name="touch_game_mode_summary">Активируйте ручное управление функциями сенсорного экрана для лучшего игрового процесса</string>
+    <string name="touch_game_mode_summary">Увеличивает частоту опроса сенсора до 180Hz</string>
     <string name="touch_response_title">Отклик сенсора экрана</string>
     <string name="touch_response_summary">Управление сенсорным откликом</string>
     <string name="touch_sensitivity_title">Сенсорная чувствительность</string>
-    <string name="touch_sensitivity_summary">Управление чувствительностью к касанию для повторяющихся нажатий</string>
-    <string name="touch_resistant_title">Сенсорная зона</string>
-    <string name="touch_resistant_summary">Уменьшите чувствительность к касанию по краям, чтобы не запускать сенсорное управление</string>
+    <string name="touch_sensitivity_summary">Управляет чувствительностью касания при повторных нажатиях</string>
+    <string name="touch_resistant_title">Края сенсора</string>
+    <string name="touch_resistant_summary">Уменьшает чувствительность сенсора по краям, чтобы избежать ложных нажатий</string>
 </resources>
