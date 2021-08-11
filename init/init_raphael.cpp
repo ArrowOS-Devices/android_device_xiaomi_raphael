@@ -18,9 +18,6 @@
 #include "property_service.h"
 #include "vendor_init.h"
 
-using android::base::GetProperty;
-using std::string;
-
 std::vector<std::string> ro_props_default_source_order = {
     "",
     "odm.",
@@ -96,7 +93,7 @@ void vendor_load_properties() {
     char const fp[] = "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys";
     char const fp_desc[] = "walleye-user 8.1.0 OPM1.171019.011 4448085 release-keys";
 
-    string region = android::base::GetProperty("ro.boot.hwc", "");
+    std::string region = android::base::GetProperty("ro.boot.hwc", "");
 
     if (region == "INDIA") {
         set_device_props(
