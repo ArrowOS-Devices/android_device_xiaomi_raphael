@@ -1,0 +1,4 @@
+userdebug_or_eng(`
+  allow hal_sensors_default vendor_diag_device:chr_file { open read write ioctl };
+')
+dontaudit hal_sensors_default vendor_diag_device:chr_file { open read write ioctl };
