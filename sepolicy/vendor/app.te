@@ -6,3 +6,6 @@ allow { appdomain -isolated_app } public_adsprpcd_file:file r_file_perms;
 
 # Allow appdomain to get persist_camera_prop
 get_prop(appdomain, vendor_persist_camera_prop)
+
+# Allow appdomain to get vendor_camera_prop
+get_prop(appdomain, vendor_camera_prop)
