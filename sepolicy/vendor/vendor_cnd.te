@@ -1,0 +1,4 @@
+userdebug_or_eng(`
+  allow vendor_cnd vendor_diag_device:chr_file { read write };
+')
+dontaudit vendor_cnd vendor_diag_device:chr_file { read write };

@@ -1,0 +1,5 @@
+# Allow vendor_dpmd to read, write, open, and control IO in vendor_diag_device
+userdebug_or_eng(`
+  allow vendor_dpmd vendor_diag_device:chr_file { open ioctl read write };
+')
+dontaudit vendor_dpmd vendor_diag_device:chr_file { open ioctl read write };
