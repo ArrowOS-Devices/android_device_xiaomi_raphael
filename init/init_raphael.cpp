@@ -90,8 +90,8 @@ void set_device_props(const std::string fingerprint, const std::string descripti
 
 void vendor_load_properties() {
     // SafetyNet madness
-    char const fp[] = "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys";
-    char const fp_desc[] = "walleye-user 8.1.0 OPM1.171019.011 4448085 release-keys";
+    char const fp[] = "Xiaomi/raphael/raphael:11/RKQ1.200826.002/V12.5.2.0.RFKMIXM:user/release-keys";
+    char const fp_desc[] = "raphael-user 11 RKQ1.200826.002 V12.5.2.0.RFKMIXM release-keys";
 
     std::string region = android::base::GetProperty("ro.boot.hwc", "");
 
