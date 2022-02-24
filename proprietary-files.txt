@@ -1022,14 +1022,6 @@ vendor/radio/qcril_database/upgrade/7_version_update_ecc_table.sql
 
 # RIL (IMS)
 -system_ext/priv-app/ims/ims.apk
-system_ext/lib64/lib-imsvideocodec.so
-system_ext/lib64/lib-imsvt.so
-system_ext/lib64/lib-imsvtextutils.so
-system_ext/lib64/lib-imsvtutils.so
-system_ext/lib64/libdiag_system.so
-system_ext/lib64/libimscamera_jni.so
-system_ext/lib64/libimsmedia_jni.so
-system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 vendor/bin/ims_rtp_daemon
 vendor/bin/imsdatadaemon
 vendor/bin/imsqmidaemon
@@ -1076,6 +1068,16 @@ vendor/lib64/vendor.qti.ims.rcsconfig@2.0.so
 vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so
 vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@3.0.so
+
+# RIL (IMS) - from alioth V13.0.3.0.SKHCNXM
+system_ext/lib64/lib-imsvideocodec.so|2536b0f74d72285266c98dac25ae296d6240984b
+system_ext/lib64/lib-imsvt.so|8809d273ee85ddc70ed0eb69698b8eb4b71f8150
+system_ext/lib64/lib-imsvtextutils.so|16bed08e80919635fcb7ace934bd5f16f059c182
+system_ext/lib64/lib-imsvtutils.so|875748249b9269e964f467311c72e123878c0de9
+system_ext/lib64/libdiag_system.so|da6a627a937ff024deea468f438b03fd6560139e
+system_ext/lib64/libimscamera_jni.so|ff3d65093f5bf19fba95798b0a121ee510b0f72e
+system_ext/lib64/libimsmedia_jni.so|3c625b6216237f1df44e0c75fcc6894f1a296847
+system_ext/lib64/vendor.qti.imsrtpservice@3.0.so|0c11ff5a7a671073ee40e17d46aa8b7acbf1dc0a
 
 # Secure Element
 vendor/bin/hw/vendor.qti.secure_element@1.2-service
