@@ -16,7 +16,6 @@ cc_binary {
         "pixel-power-ext-V1-ndk_platform",
     ],
     srcs: [
-        "DisplayLowPower.cpp",
         "InteractionHandler.cpp",
         "Power.cpp",
         "PowerExt.cpp",
