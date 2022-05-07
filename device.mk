@@ -23,8 +23,7 @@ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/google/interfaces \
-    hardware/google/pixel \
-    hardware/xiaomi
+    hardware/google/pixel
 
 # Boot animation
 TARGET_BOOT_ANIMATION_RES := 1080
