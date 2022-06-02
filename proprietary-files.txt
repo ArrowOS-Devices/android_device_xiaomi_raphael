@@ -1183,6 +1183,9 @@ vendor/bin/ssr_setup
 -vendor/lib/libthermalclient.so
 -vendor/lib64/libthermalclient.so
 
+# Thermal - from coral SQ1A.220105.002
+vendor/bin/thermal-engine|01cb7dc998c39016b54089c18921ad7d65b3c675
+
 # Time
 -vendor/app/TimeService/TimeService.apk
 vendor/bin/time_daemon
